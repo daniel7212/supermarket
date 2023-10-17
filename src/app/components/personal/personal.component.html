@@ -3,7 +3,9 @@
     <h1>Personal</h1>
   </div>
   <div class="col-sm-6 col-6 col-md-6">
-    <button class="btn btn-success">+ añadir</button>
+    <button class="btn btn-success" (click)="openModal(template)">
+      + añadir
+    </button>
   </div>
 </div>
 <ul class="list-group list-group-light">
@@ -22,7 +24,7 @@
         <p class="text-muted mb-0"><span>Cargo: </span>Cajero</p>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary">actualizar</button>
+        <button class="btn btn-primary"  (click)="openModal(actualizar)">actualizar</button>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
         <button class="btn btn-danger">Borrar</button>
@@ -44,7 +46,9 @@
         <p class="text-muted mb-0"><span>Cargo: </span>Supervisor</p>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary">actualizar</button>
+        <button class="btn btn-primary"  (click)="openModal(actualizar)">
+          actualizar
+        </button>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
         <button class="btn btn-danger">Borrar</button>
@@ -66,7 +70,7 @@
         <p class="text-muted mb-0"><span>Cargo: </span>Administrador</p>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary">actualizar</button>
+        <button class="btn btn-primary"  (click)="openModal(actualizar)">actualizar</button>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
         <button class="btn btn-danger">Borrar</button>
@@ -88,7 +92,7 @@
         <p class="text-muted mb-0"><span>Cargo: </span>Guardia de seguridad</p>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary">actualizar</button>
+        <button class="btn btn-primary"  (click)="openModal(actualizar)">actualizar</button>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
         <button class="btn btn-danger">Borrar</button>
@@ -109,7 +113,7 @@
         <p class="text-muted mb-0"><span>Cargo: </span>Cajero</p>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary">actualizar</button>
+        <button class="btn btn-primary" (click)="openModal(actualizar)">actualizar</button>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
         <button class="btn btn-danger">Borrar</button>
@@ -118,6 +122,102 @@
   </li>
 </ul>
 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Añadir Personal:</h4>
+    <button
+      type="button"
+      class="btn-close close pull-right"
+      aria-label="Close"
+      (click)="modalRef?.hide()"
+    >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group grupo">
+        <label for="exampleInputEmail1">URL foto</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Ingrese la url de la foto"
+        />
+      </div>
+      <div class="form-group grupo">
+        <label for="exampleInputEmail1">Nombre</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Ingrese el nombre completo"
+        />
+      </div>
+      <div class="form-group grupo">
+        <label for="exampleInputPassword1">Cargo</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Ingrese el cargo"
+        />
+      </div>
 
+      <button type="submit" class="btn btn-success" (click)="modalRef?.hide()">Registrar</button>
+    </form>
+  </div>
+</ng-template>
 
-    
+<ng-template #actualizar>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Actualizar:</h4>
+    <button
+      type="button"
+      class="btn-close close pull-right"
+      aria-label="Close"
+      (click)="modalRef?.hide()"
+    >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+        <div class="form-group grupo">
+            <label for="exampleInputEmail1">URL foto</label>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Url de la foto para ser modificada"
+            />
+          </div>
+      <div class="form-group grupo">
+        <label for="exampleInputEmail1">Nombre</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Nombre para ser cambiado"
+        />
+      </div>
+      <div class="form-group grupo">
+        <label for="exampleInputPassword1">Cargo</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Cargo para ser cambiado"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary" (click)="modalRef?.hide()">Actualizar</button>
+    </form>
+  </div>
+</ng-template>
