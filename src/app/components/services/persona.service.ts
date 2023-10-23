@@ -29,21 +29,11 @@ export class PersonaService {
       });
   }
 
-  getPersonal(): Observable<QuerySnapshot<DocumentData>>{
-    const colRef = collection(this.firestore, 'persona');
-    return from(getDocs(colRef));
-  }
-
 
   getAll() {
     return collectionData(collection(this.firestore, 'persona'), {
       idField: 'id',
-    }) as Observable<any[]>;
+    }) as Observable<IPersona[]>;
   }
 
-  /*
-  getAll2(): AngularFirestoreCollection<Tutorial> {
-    return this.tutorialsRef;
-  }
-  */
 }

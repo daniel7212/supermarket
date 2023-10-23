@@ -19,28 +19,6 @@ export class PersonalComponent {
       console.log(result);
       });
     ;
-
-    /*
-    this.firebase.getPersonal().subscribe((result) => {
-      result.forEach((doc) => {
-        this.a.push(doc.data());
-      });
-    });
-    //console.log(this.a);
-    this.a.forEach(element => {
-      console.log("a"+element);
-    });
-    
-    /*
-    let persona : IPersona =[
-      this.persona.nombres="",
-      this.persona.apellidos="",
-      this.persona.correo="",
-      this.persona.cargo="",
-      this.persona.urlImagen="",
-    ];
-    this.persona.nombres=this.a[0]["nombre"];
-    */
   }
 
   persona: IPersona = {
