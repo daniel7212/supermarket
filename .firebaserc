@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "moviluniminuto": {
+      "hosting": {
+        "supermercado": [
+          "moviluniminuto"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "moviluniminuto"
+  }
+}

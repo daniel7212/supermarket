@@ -6,8 +6,7 @@ import { ProductosComponent } from './productos/productos.component';
 import { PersonalComponent } from './personal/personal.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
-
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -16,6 +15,7 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     ProductosComponent,
     PersonalComponent,
+    MenuComponent,
   ],
   imports: [
     CommonModule,

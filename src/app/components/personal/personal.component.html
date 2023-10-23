@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="row titulo">
   <div class="col-sm-6 col-6 col-md-6">
     <h1>Personal</h1>
@@ -6,27 +7,34 @@
     <button class="btn btn-success" (click)="openModal(template)">
       + añadir
     </button>
-  </div>
+    <!--
+    <button class="btn btn-success" (click)="addPersonal()">
+      + añadir
+    </button>
+  --></div>
 </div>
 <ul class="list-group list-group-light">
   <li class="list-group-item justify-content-between align-items-center">
     <div class="row">
-      <div class="col-sm-6 col-md-3">
+      <div class="col-6 col-sm-6 col-md-3 centrarVertical">
         <img
           src="https://mdbootstrap.com/img/new/avatars/8.jpg"
           alt=""
-          style="width: 45px; height: 45px"
+          style="width: 80px; height: 80px"
           class="rounded-circle"
         />
       </div>
-      <div class="col-sm-6 col-md-3">
+      <div class="col-6 col-sm-6 col-md-3">
         <p class="fw-bold mb-1">John Doe</p>
+        <p class="text-muted mb-0"><span>Correo: </span>ejemplo@.edu.co</p>
         <p class="text-muted mb-0"><span>Cargo: </span>Cajero</p>
       </div>
-      <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary"  (click)="openModal(actualizar)">actualizar</button>
+      <div class="col-6 col-sm-6 col-6 col-md-3 centrarVertical">
+        <button class="btn btn-primary" (click)="openModal(actualizar)">
+          actualizar
+        </button>
       </div>
-      <div class="col-sm-6 col-6 col-md-3">
+      <div class="col-6 col-sm-6 col-6 col-md-3 centrarVertical">
         <button class="btn btn-danger">Borrar</button>
       </div>
     </div>
@@ -46,7 +54,7 @@
         <p class="text-muted mb-0"><span>Cargo: </span>Supervisor</p>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary"  (click)="openModal(actualizar)">
+        <button class="btn btn-primary" (click)="openModal(actualizar)">
           actualizar
         </button>
       </div>
@@ -70,7 +78,9 @@
         <p class="text-muted mb-0"><span>Cargo: </span>Administrador</p>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary"  (click)="openModal(actualizar)">actualizar</button>
+        <button class="btn btn-primary" (click)="openModal(actualizar)">
+          actualizar
+        </button>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
         <button class="btn btn-danger">Borrar</button>
@@ -92,7 +102,9 @@
         <p class="text-muted mb-0"><span>Cargo: </span>Guardia de seguridad</p>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary"  (click)="openModal(actualizar)">actualizar</button>
+        <button class="btn btn-primary" (click)="openModal(actualizar)">
+          actualizar
+        </button>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
         <button class="btn btn-danger">Borrar</button>
@@ -113,7 +125,9 @@
         <p class="text-muted mb-0"><span>Cargo: </span>Cajero</p>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary" (click)="openModal(actualizar)">actualizar</button>
+        <button class="btn btn-primary" (click)="openModal(actualizar)">
+          actualizar
+        </button>
       </div>
       <div class="col-sm-6 col-6 col-md-3">
         <button class="btn btn-danger">Borrar</button>
@@ -137,37 +151,73 @@
   <div class="modal-body">
     <form>
       <div class="form-group grupo">
-        <label for="exampleInputEmail1">URL foto</label>
+        <label for="exampleInputEmail1">URL Imagen:</label>
         <input
+          [(ngModel)]="persona.urlImagen"
+          name="urlImagen"
           type="email"
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
-          placeholder="Ingrese la url de la foto"
+          placeholder="Ingrese la url de la imagen"
         />
       </div>
       <div class="form-group grupo">
-        <label for="exampleInputEmail1">Nombre</label>
+        <label for="exampleInputEmail1">Nombres:</label>
         <input
+          [(ngModel)]="persona.nombres"
+          name="nombres"
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Ingrese los nombres"
+        />
+      </div>
+      <div class="form-group grupo">
+        <label for="exampleInputEmail1">Apellidos:</label>
+        <input
+          [(ngModel)]="persona.apellidos"
+          name="apellidos"
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Ingrese los apellidos"
+        />
+      </div>
+      <div class="form-group grupo">
+        <label for="exampleInputEmail1">Correo:</label>
+        <input
+          [(ngModel)]="persona.correo"
+          name="correo"
           type="email"
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
-          placeholder="Ingrese el nombre completo"
+          placeholder="Ingrese el correo"
         />
       </div>
       <div class="form-group grupo">
-        <label for="exampleInputPassword1">Cargo</label>
+        <label for="exampleInputPassword1">Cargo:</label>
         <input
-          type="email"
+          [(ngModel)]="persona.cargo"
+          name="cargo"
+          type="text"
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
           placeholder="Ingrese el cargo"
         />
       </div>
-
-      <button type="submit" class="btn btn-success" (click)="modalRef?.hide()">Registrar</button>
+      <!--
+      <button type="submit" class="btn btn-success" (click)="modalRef?.hide()">
+        Registrar
+      </button>
+ -->
+      <button type="submit" class="btn btn-success" (click)="addPersonal()">
+        Registrar
+      </button>
     </form>
   </div>
 </ng-template>
@@ -186,16 +236,16 @@
   </div>
   <div class="modal-body">
     <form>
-        <div class="form-group grupo">
-            <label for="exampleInputEmail1">URL foto</label>
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Url de la foto para ser modificada"
-            />
-          </div>
+      <div class="form-group grupo">
+        <label for="exampleInputEmail1">URL foto</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Url de la foto para ser modificada"
+        />
+      </div>
       <div class="form-group grupo">
         <label for="exampleInputEmail1">Nombre</label>
         <input
@@ -217,7 +267,9 @@
         />
       </div>
 
-      <button type="submit" class="btn btn-primary" (click)="modalRef?.hide()">Actualizar</button>
+      <button type="submit" class="btn btn-primary" (click)="modalRef?.hide()">
+        Actualizar
+      </button>
     </form>
   </div>
 </ng-template>
