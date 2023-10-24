@@ -13,128 +13,42 @@
     </button>
   --></div>
 </div>
+
 <ul class="list-group list-group-light">
-  <li class="list-group-item justify-content-between align-items-center">
+  <li
+    class="list-group-item justify-content-between align-items-center"
+    *ngFor="let persona of personas"
+  >
     <div class="row">
       <div class="col-6 col-sm-6 col-md-3 centrarVertical">
         <img
-          src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-          alt=""
+          src="{{ persona.urlImagen }}"
           style="width: 80px; height: 80px"
           class="rounded-circle"
         />
       </div>
       <div class="col-6 col-sm-6 col-md-3">
-        <p class="fw-bold mb-1">John Doe</p>
-        <p class="text-muted mb-0"><span>Correo: </span>ejemplo@.edu.co</p>
-        <p class="text-muted mb-0"><span>Cargo: </span>Cajero</p>
+        <p class="fw-bold mb-1">
+          {{ persona.nombres }} <span>{{ persona.apellidos }}</span>
+        </p>
+        <p class="text-muted mb-0"><span>Correo: </span>{{ persona.correo }}</p>
+        <p class="text-muted mb-0"><span>Cargo: </span>{{ persona.cargo }}</p>
       </div>
       <div class="col-6 col-sm-6 col-6 col-md-3 centrarVertical">
-        <button class="btn btn-primary" (click)="openModal(actualizar)">
+        <button class="btn btn-primary" (click)="openModalUpdate(actualizar, persona)">
           actualizar
         </button>
       </div>
       <div class="col-6 col-sm-6 col-6 col-md-3 centrarVertical">
-        <button class="btn btn-danger">Borrar</button>
-      </div>
-    </div>
-  </li>
-  <li class="list-group-item justify-content-between align-items-center">
-    <div class="row">
-      <div class="col-sm-6 col-md-3">
-        <img
-          src="data:image/jpeg;base64,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"
-          alt=""
-          style="width: 45px; height: 45px"
-          class="rounded-circle"
-        />
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <p class="fw-bold mb-1">Jorge Perez</p>
-        <p class="text-muted mb-0"><span>Cargo: </span>Supervisor</p>
-      </div>
-      <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary" (click)="openModal(actualizar)">
-          actualizar
+        <button class="btn btn-danger" (click)="deletePersona(persona)">
+          Borrar
         </button>
-      </div>
-      <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-danger">Borrar</button>
-      </div>
-    </div>
-  </li>
-  <li class="list-group-item justify-content-between align-items-center">
-    <div class="row">
-      <div class="col-sm-6 col-md-3">
-        <img
-          src="https://hips.hearstapps.com/hmg-prod/images/axl-rose-mejores-frases-1580906824.jpg?crop=1.00xw:0.754xh;0,0.0403xh&resize=1200:*"
-          alt=""
-          style="width: 45px; height: 45px"
-          class="rounded-circle"
-        />
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <p class="fw-bold mb-1">Carlos Torres</p>
-        <p class="text-muted mb-0"><span>Cargo: </span>Administrador</p>
-      </div>
-      <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary" (click)="openModal(actualizar)">
-          actualizar
-        </button>
-      </div>
-      <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-danger">Borrar</button>
-      </div>
-    </div>
-  </li>
-  <li class="list-group-item justify-content-between align-items-center">
-    <div class="row">
-      <div class="col-sm-6 col-md-3">
-        <img
-          src="https://hips.hearstapps.com/hmg-prod/images/singer-shakira-attends-the-screening-of-elvis-during-the-news-photo-1673516621.jpg"
-          alt=""
-          style="width: 45px; height: 45px"
-          class="rounded-circle"
-        />
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <p class="fw-bold mb-1">Emanuel pinilla</p>
-        <p class="text-muted mb-0"><span>Cargo: </span>Guardia de seguridad</p>
-      </div>
-      <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary" (click)="openModal(actualizar)">
-          actualizar
-        </button>
-      </div>
-      <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-danger">Borrar</button>
-      </div>
-    </div>
-  </li>
-  <li class="list-group-item justify-content-between align-items-center">
-    <div class="row">
-      <div class="col-sm-6 col-md-3">
-        <img
-          src="https://tn.com.ar/resizer/Y0CayVX_e6GpHIeaS3t9J-lND3I=/767x0/smart/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/artear/CC5ELKLSKVCPZKFHLIT6AZVKG4.jpg"
-          style="width: 45px; height: 45px"
-          class="rounded-circle"
-        />
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <p class="fw-bold mb-1">Jorge Robledo</p>
-        <p class="text-muted mb-0"><span>Cargo: </span>Cajero</p>
-      </div>
-      <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-primary" (click)="openModal(actualizar)">
-          actualizar
-        </button>
-      </div>
-      <div class="col-sm-6 col-6 col-md-3">
-        <button class="btn btn-danger">Borrar</button>
       </div>
     </div>
   </li>
 </ul>
+
+<!--Modal añadir-->
 
 <ng-template #template>
   <div class="modal-header">
@@ -222,6 +136,8 @@
   </div>
 </ng-template>
 
+<!--Modal actualizar-->
+
 <ng-template #actualizar>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Actualizar:</h4>
@@ -239,6 +155,8 @@
       <div class="form-group grupo">
         <label for="exampleInputEmail1">URL foto</label>
         <input
+          [(ngModel)]="personaUpdate.urlImagen"
+          name="urlImagen"
           type="email"
           class="form-control"
           id="exampleInputEmail1"
@@ -247,8 +165,10 @@
         />
       </div>
       <div class="form-group grupo">
-        <label for="exampleInputEmail1">Nombre</label>
+        <label for="exampleInputEmail1">Nombres:</label>
         <input
+          [(ngModel)]="personaUpdate.nombres"
+          name="nombres"
           type="email"
           class="form-control"
           id="exampleInputEmail1"
@@ -257,8 +177,34 @@
         />
       </div>
       <div class="form-group grupo">
+        <label for="exampleInputEmail1">Apellidos:</label>
+        <input
+          [(ngModel)]="personaUpdate.apellidos"
+          name="apellidos"
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Ingrese los apellidos"
+        />
+      </div>
+      <div class="form-group grupo">
+        <label for="exampleInputEmail1">Correo:</label>
+        <input
+          [(ngModel)]="personaUpdate.correo"
+          name="correo"
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Ingrese el correo"
+        />
+      </div>
+      <div class="form-group grupo">
         <label for="exampleInputPassword1">Cargo</label>
         <input
+          [(ngModel)]="personaUpdate.cargo"
+          name="cargo"
           type="email"
           class="form-control"
           id="exampleInputEmail1"
@@ -267,7 +213,7 @@
         />
       </div>
 
-      <button type="submit" class="btn btn-primary" (click)="modalRef?.hide()">
+      <button type="submit" class="btn btn-primary" (click)="updatePersona()">
         Actualizar
       </button>
     </form>

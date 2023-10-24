@@ -10,17 +10,7 @@ import { DocumentData } from 'firebase/firestore';
   styleUrls: ['./personal.component.scss'],
 })
 export class PersonalComponent {
-  personas: IPersona[] = [];
-  a: DocumentData[] = [];
-
-  ngOnInit() {
-
-    this.firebase.getAll().subscribe((result) => {
-      console.log(result);
-      });
-    ;
-  }
-
+  
   persona: IPersona = {
     nombres: '',
     apellidos: '',
@@ -28,6 +18,23 @@ export class PersonalComponent {
     cargo: '',
     urlImagen: '',
   };
+
+  personaUpdate: IPersona ={
+    nombres: '',
+    apellidos: '',
+    correo: '',
+    cargo: '',
+    urlImagen: '',
+  };
+
+
+  personas: IPersona[] = [];
+
+  ngOnInit() {
+
+  this.getAll();
+
+  }
 
   modalRef?: BsModalRef;
   constructor(
@@ -39,7 +46,30 @@ export class PersonalComponent {
     this.modalRef = this.modalService.show(template);
   }
 
+  openModalUpdate(template: TemplateRef<any>,persona:IPersona) {
+    this.modalRef = this.modalService.show(template);
+    this.personaUpdate=persona;
+  }
+
   addPersonal() {
     this.firebase.addPersona(this.persona);
+    this.modalRef?.hide();
+  }
+
+  getAll() {
+    
+    this.firebase.getAll().subscribe((result) => {
+      console.log("data:", result);
+      this.personas=result;
+    });
+  }
+
+  updatePersona(){
+    this.firebase.updatePersona(this.personaUpdate);
+    this.modalRef?.hide();
+  }
+
+  deletePersona(persona:IPersona){
+    this.firebase.deletePersona(persona);
   }
 }
