@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { ProductosComponent } from './productos/productos.component';
 import { PersonalComponent } from './personal/personal.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 
 
@@ -18,7 +18,8 @@ import { MenuComponent } from './menu/menu.component';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ComponentsModule { }

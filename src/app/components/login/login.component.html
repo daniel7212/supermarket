@@ -26,10 +26,12 @@
 
         <div class="card bg-glass">
           <div class="card-body px-4 py-5 px-md-5">
-            <form>
+            <form [formGroup]="formularioContacto" (ngSubmit)="submit()">
               <!-- Email input -->
               <div class="form-outline mb-4">
                 <input
+                  formControlName="email"
+                  required
                   [(ngModel)]="email"
                   name="email"
                   type="email"
@@ -37,11 +39,20 @@
                   class="form-control"
                 />
                 <label class="form-label" for="form3Example3">Correo</label>
+                <span *ngIf="this.formularioContacto.get('email')?.errors?.['required']  "  class="error">
+                  (Se debe ingresar un correo)
+                </span>
+                <span *ngIf="this.formularioContacto.get('email')?.errors?.['email']"  class="error">
+                  (El correo no es válido)
+                </span>
               </div>
+              
 
               <!-- Password input -->
               <div class="form-outline mb-4">
                 <input
+                  formControlName="password"
+                  required
                   [(ngModel)]="password"
                   name="password"
                   type="password"
@@ -49,13 +60,17 @@
                   class="form-control"
                 />
                 <label class="form-label" for="form3Example4">Contraseña</label>
+                <span *ngIf="this.formularioContacto.get('password')?.errors?.['required'] " class="error">
+                  (Se debe ingresar una contraseña)
+                </span>
+                <span *ngIf="this.formularioContacto.get('password')?.errors?.['minlength']"  class="error">
+                  (La contraseña debe tener como mínimo 8 caracteres)
+                </span>
               </div>
+              
 
               <!-- Submit button -->
-              <button
-                class="btn btn-primary btn-block mb-4"
-                (click)="logear()"
-              >
+              <button class="btn btn-primary btn-block mb-4"  [hidden]="formularioContacto.invalid" type="submit" (click)="logear()">
                 ingresar
               </button>
             </form>
