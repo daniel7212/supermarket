@@ -2,7 +2,6 @@ import { Component, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { PersonaService } from '../services/persona.service';
 import { IPersona } from '../models/Persona';
-import { DocumentData } from 'firebase/firestore';
 
 @Component({
   selector: 'app-personal',
