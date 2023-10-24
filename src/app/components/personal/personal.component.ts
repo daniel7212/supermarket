@@ -56,7 +56,6 @@ export class PersonalComponent {
   }
 
   getAll() {
-    
     this.firebase.getAll().subscribe((result) => {
       console.log("data:", result);
       this.personas=result;

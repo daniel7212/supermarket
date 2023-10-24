@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import Swal from 'sweetalert2';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private userService: LoginService) {}
+  constructor(private userService: LoginService, private router:Router) {}
 
   resultado!: string;
 
@@ -37,6 +38,7 @@ export class LoginComponent {
     .then(response=>
       {
         console.log(response);
+        this.router.navigate(['/personal']);
       }
       )
     .catch(error => this.mensajeError()); 
