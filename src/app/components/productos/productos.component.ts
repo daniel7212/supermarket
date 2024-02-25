@@ -30,8 +30,6 @@ export class ProductosComponent {
 
   ngOnInit() {
 
-  this.getAll();
-
   }
 
   modalRef?: BsModalRef;
@@ -44,10 +42,8 @@ export class ProductosComponent {
     this.modalRef = this.modalService.show(template);
   }
 
-  openModalUpdate(template: TemplateRef<any>,producto:IProducto) {
+  openModalUpdate(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
-    this.productoUpdate=producto;
-    console.log(this.productoUpdate);
   }
 
   addProducto() {
@@ -69,7 +65,6 @@ export class ProductosComponent {
     this.modalRef?.hide();
   }
 
-  deleteProducto(producto:IProducto){
-    this.firebase.deleteProducto(producto);
+  deleteProducto(){
   }
 }

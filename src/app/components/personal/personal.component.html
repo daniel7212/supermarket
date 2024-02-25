@@ -17,36 +17,66 @@
 <ul class="list-group list-group-light">
   <li
     class="list-group-item justify-content-between align-items-center"
-    *ngFor="let persona of personas"
   >
     <div class="row">
       <div class="col-6 col-sm-6 col-md-3 centrarVertical">
         <img
-          src="{{ persona.urlImagen }}"
+          src="https://taogroup.com/wp-content/uploads/2023/03/230000_TGH_Martin-Garrix_2400x2400.jpg"
           style="width: 80px; height: 80px"
           class="rounded-circle"
         />
       </div>
       <div class="col-6 col-sm-6 col-md-3">
         <p class="fw-bold mb-1">
-          {{ persona.nombres }} <span>{{ persona.apellidos }}</span>
+          Martin <span>Garrix</span>
         </p>
-        <p class="text-muted mb-0"><span>Correo: </span>{{ persona.correo }}</p>
-        <p class="text-muted mb-0"><span>Cargo: </span>{{ persona.cargo }}</p>
+        <p class="text-muted mb-0"><span>Correo: </span>martin@gmail.com</p>
+        <p class="text-muted mb-0"><span>Cargo: </span>dj</p>
       </div>
       <div class="col-6 col-sm-6 col-6 col-md-3 centrarVertical">
-        <button class="btn btn-primary" (click)="openModalUpdate(actualizar, persona)">
+        <button class="btn btn-primary" (click)="openModalUpdate(actualizar)">
           actualizar
         </button>
       </div>
       <div class="col-6 col-sm-6 col-6 col-md-3 centrarVertical">
-        <button class="btn btn-danger" (click)="deletePersona(persona)">
+        <button class="btn btn-danger" (click)="deletePersona()">
+          Borrar
+        </button>
+      </div>
+    </div>
+  </li>
+  <li
+    class="list-group-item justify-content-between align-items-center"
+  >
+    <div class="row">
+      <div class="col-6 col-sm-6 col-md-3 centrarVertical">
+        <img
+          src="https://images.crunchbase.com/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/ozdizalzrwx6c9sugihy"
+          style="width: 80px; height: 80px"
+          class="rounded-circle"
+        />
+      </div>
+      <div class="col-6 col-sm-6 col-md-3">
+        <p class="fw-bold mb-1">
+          Daniel Stiven <span>Diaz</span>
+        </p>
+        <p class="text-muted mb-0"><span>Correo: </span>daniel@gmail.com</p>
+        <p class="text-muted mb-0"><span>Cargo: </span>Consultor tecnico</p>
+      </div>
+      <div class="col-6 col-sm-6 col-6 col-md-3 centrarVertical">
+        <button class="btn btn-primary" (click)="openModalUpdate(actualizar)">
+          actualizar
+        </button>
+      </div>
+      <div class="col-6 col-sm-6 col-6 col-md-3 centrarVertical">
+        <button class="btn btn-danger" (click)="deletePersona()">
           Borrar
         </button>
       </div>
     </div>
   </li>
 </ul>
+
 
 <!--Modal añadir-->
 

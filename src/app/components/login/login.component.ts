@@ -34,14 +34,8 @@ export class LoginComponent {
   }
 
   logear() {
-    this.userService.login(this.email, this.password)
-    .then(response=>
-      {
-        console.log(response);
+    
         this.router.navigate(['/personal']);
-      }
-      )
-    .catch(error => this.mensajeError()); 
   }
 
   mensajeError(){

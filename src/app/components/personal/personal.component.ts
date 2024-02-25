@@ -31,8 +31,6 @@ export class PersonalComponent {
 
   ngOnInit() {
 
-  this.getAll();
-
   }
 
   modalRef?: BsModalRef;
@@ -45,9 +43,8 @@ export class PersonalComponent {
     this.modalRef = this.modalService.show(template);
   }
 
-  openModalUpdate(template: TemplateRef<any>,persona:IPersona) {
+  openModalUpdate(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
-    this.personaUpdate=persona;
   }
 
   addPersonal() {
@@ -67,7 +64,6 @@ export class PersonalComponent {
     this.modalRef?.hide();
   }
 
-  deletePersona(persona:IPersona){
-    this.firebase.deletePersona(persona);
+  deletePersona(){
   }
 }
